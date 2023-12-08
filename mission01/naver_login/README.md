@@ -33,6 +33,7 @@ const button = document.querySelector(".btn-login");
 ### 02. email, password 정규표현식을 사용한 조건처리
 
 이벤트 핸들러 방식 - 대상 요소의 해당 onevent 속성에 직접 이벤트를 할당.
+
 classList - 요소의 클래스 목록을 조작하는 데 사용하는 속성.
 
 ```html
@@ -69,7 +70,9 @@ const linkToWelcome = () => {
 ### 04. 로그인 버튼을 클릭시 user.pw의 값과 input의 값을 비교
 
 이벤트 핸들러 방식 - 메서드를 사용하여 핸들러를 요소에 대한 리스너로 등록
+
 preventDefault - 해당 이벤트에 대한 요소의 기본 동작을 실행하지 않도록 지정
+
 조건문 - 데이터의 email, pw와 일치하면 페이지 이동 함수 실행, 불일치시 입력값을 지우고 에러 반환.
 
 ```js
