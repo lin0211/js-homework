@@ -34,7 +34,7 @@ const pwValidation = () => {
 
 // 페이지 이동
 const linkToWelcome = () => {
-  window.location.href = "welcome.html";
+  location.href = "welcome.html";
 };
 
 // 3. 로그인 버튼을 클릭시 user.pw의 값과 input의 값을 비교
