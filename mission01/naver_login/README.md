@@ -58,10 +58,19 @@ const pwValidation = () => {
 };
 ```
 
-### 03. 로그인 버튼을 클릭시 user.pw의 값과 input의 값을 비교
+### 03. welcome 페이지로 이동
+
+```js
+const linkToWelcome = () => {
+  location.href = "welcome.html";
+};
+```
+
+### 04. 로그인 버튼을 클릭시 user.pw의 값과 input의 값을 비교
 
 이벤트 핸들러 방식 - 메서드를 사용하여 핸들러를 요소에 대한 리스너로 등록
 preventDefault - 해당 이벤트에 대한 요소의 기본 동작을 실행하지 않도록 지정
+조건문 - 데이터의 email, pw와 일치하면 페이지 이동 함수 실행, 불일치시 입력값을 지우고 에러 반환.
 
 ```js
 const handleLogIn = (e) => {
@@ -76,12 +85,4 @@ const handleLogIn = (e) => {
 };
 
 button.addEventListener("click", handleLogIn);
-```
-
-### 04. welcome 페이지로 이동
-
-```js
-const linkToWelcome = () => {
-  window.location.href = "welcome.html";
-};
 ```
