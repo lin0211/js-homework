@@ -14,6 +14,21 @@ const inputEmail = document.querySelector(".user-email-input");
 const inputPW = document.querySelector(".user-password-input");
 const button = document.querySelector(".btn-login");
 
+let emailPass = false;
+let pwPass = false;
+
+function emailReg(text) {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  return re.test(String(text).toLowerCase());
+}
+
+function pwReg(text) {
+  const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
+  return re.test(String(text).toLowerCase());
+}
+
 const emailValidation = () => {
   if (emailReg(inputEmail.value)) {
     inputEmail.classList.remove("is--invalid");
@@ -36,25 +51,17 @@ const linkToWelcome = () => {
 
 const handleLogIn = (e) => {
   e.preventDefault();
-  if (inputEmail.value === user.id && inputPW.value === user.pw) {
-    linkToWelcome();
+  if (emailPass && pwPass) {
+    if (inputEmail.value === user.id && inputPW.value === user.pw) {
+      linkToWelcome();
+    } else {
+      inputEmail.value = "";
+      inputPW.value = "";
+      throw new Error("Not Matched");
+    }
   } else {
-    inputEmail.value = "";
-    inputPW.value = "";
-    throw new Error("Not Matched");
+    throw new Error("validation failed");
   }
 };
 
 button.addEventListener("click", handleLogIn);
-
-function emailReg(text) {
-  const re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  return re.test(String(text).toLowerCase());
-}
-
-function pwReg(text) {
-  const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
-  return re.test(String(text).toLowerCase());
-}
