@@ -14,8 +14,11 @@ const inputEmail = document.querySelector(".user-email-input");
 const inputPW = document.querySelector(".user-password-input");
 const button = document.querySelector(".btn-login");
 
-let emailPass = false;
-let pwPass = false;
+// let emailPass = false;
+// let pwPass = false;
+
+const [emailState, setEmailState] = useState(false);
+const [pwState, setPwState] = useState(false);
 
 function emailReg(text) {
   const re =
@@ -32,16 +35,20 @@ function pwReg(text) {
 const emailValidation = () => {
   if (emailReg(inputEmail.value)) {
     inputEmail.classList.remove("is--invalid");
+    setEmailState(true);
   } else {
     inputEmail.classList.add("is--invalid");
+    setEmailState(false);
   }
 };
 
 const pwValidation = () => {
   if (pwReg(inputPW.value)) {
     inputPW.classList.remove("is--invalid");
+    setPwState(true);
   } else {
     inputPW.classList.add("is--invalid");
+    setPwState(false);
   }
 };
 
@@ -51,7 +58,7 @@ const linkToWelcome = () => {
 
 const handleLogIn = (e) => {
   e.preventDefault();
-  if (emailPass && pwPass) {
+  if (emailState && pwState) {
     if (inputEmail.value === user.id && inputPW.value === user.pw) {
       linkToWelcome();
     } else {
