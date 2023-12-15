@@ -14,8 +14,8 @@ const nickName = document.querySelector(".nickName");
 
 // 배경 색상 변경 함수
 const setBgColor = (node, index) => {
-  const dataColor = data[index - 1]["color"];
-  node.style.background = `linear-gradient(to bottom,${dataColor[0]},${dataColor[1]})`;
+  const [dataColorA, dataColorB] = data[index - 1]["color"];
+  node.style.background = `linear-gradient(to bottom,${dataColorA},${dataColorB})`;
 };
 
 //이미지 변경 함수
@@ -32,12 +32,32 @@ const setNameText = (node, index) => {
   node.textContent = dataNickName;
 };
 
+//오디오 실행 함수
+const setAudio = (index) => {
+  const dataAudioSrc = `./assets/audio/${data[index - 1]["name"]}.m4a`;
+  const audio = new AudioPlayer(dataAudioSrc);
+  audio.play();
+};
+
+//애니메이션
+const setAnimation = (node) => {
+  gsap.from(node, {
+    rotate: 100,
+    scale: 0.5,
+    opacity: 0,
+  });
+
+  gsap.to(node, {
+    scale: 1,
+    opacity: 1,
+  });
+};
+
 const handleClick = (e) => {
   e.preventDefault();
   const li = e.target.closest("li");
   if (!li) return;
 
-  //
   [...nav.children].forEach((list) => {
     list.classList.remove("is-active");
   });
@@ -46,18 +66,8 @@ const handleClick = (e) => {
   setBgColor(body, li.dataset["index"]);
   setImage(poster, li.dataset["index"]);
   setNameText(nickName, li.dataset["index"]);
-
-  //애니메이션
-  gsap.from(poster, {
-    rotate: 100,
-    scale: 0.5,
-    opacity: 0,
-  });
-
-  gsap.to(poster, {
-    scale: 1,
-    opacity: 1,
-  });
+  setAudio(li.dataset["index"]);
+  setAnimation(poster);
 };
 
 //클릭 이벤트 활성화
