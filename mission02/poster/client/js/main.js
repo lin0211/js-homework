@@ -12,9 +12,12 @@ const body = document.querySelector("body");
 const poster = document.querySelector(".visual img");
 const nickName = document.querySelector(".nickName");
 
-// 배경 색상 변경 함수
+// 배경 변경 함수
 const setBgColor = (node, index) => {
-  const [dataColorA, dataColorB] = data[index - 1]["color"];
+  let [dataColorA, dataColorB] = data[index - 1]["color"];
+  if (!dataColorB) {
+    dataColorB = "#000";
+  }
   node.style.background = `linear-gradient(to bottom,${dataColorA},${dataColorB})`;
 };
 
