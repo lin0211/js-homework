@@ -20,7 +20,7 @@
 
 ## 상세 정보
 
-### 01. document 내의 요소를 검색
+### 1. document 내의 요소를 검색
 
 querySelector - 선택자와 일치하는 문서 내 첫 번째 요소를 반환
 
@@ -31,9 +31,9 @@ const poster = document.querySelector(".visual img");
 const nickName = document.querySelector(".nickName");
 ```
 
-### 02 함수 선언
+### 2 함수 선언
 
-#### 02-1 배경 변경
+#### 2-1 배경 변경
 
 입력된 노드에 저장된 데이터의 index로 배경 변경
 
@@ -50,7 +50,7 @@ const setBgColor = (node, index) => {
 };
 ```
 
-#### 02-2 이미지 변경
+#### 2-2 이미지 변경
 
 입력된 노드에 저장된 데이터의 index로 이미지 변경
 
@@ -63,7 +63,7 @@ const setImage = (node, index) => {
 };
 ```
 
-#### 02-3 텍스트 변경
+#### 2-3 텍스트 변경
 
 입력된 노드에 저장된 데이터의 index로 텍스트 변경
 
@@ -74,9 +74,9 @@ const setNameText = (node, index) => {
 };
 ```
 
-#### 02-4 오디오 실행
+#### 2-4 오디오 실행
 
-저장된 데이터의 index로 오디오 실행 -저장된 오디오 생성자 함수를 이용한 오디오 플레이
+저장된 데이터의 index로 오디오 실행 - 저장된 오디오 생성자 함수를 이용한 오디오 플레이
 
 ```js
 const setAudio = (index) => {
@@ -86,7 +86,7 @@ const setAudio = (index) => {
 };
 ```
 
-#### 02-5 애니메이션 실행
+#### 2-5 애니메이션 실행
 
 gsap을 이용한 간단한 애니메이션 효과
 
@@ -105,7 +105,7 @@ const setAnimation = (node) => {
 };
 ```
 
-### 03. 썸네일을 클릭시 상호작용
+### 3. 썸네일을 클릭시 상호작용
 
 이벤트 처리방식 - 클릭에 의한 이벤트 작동으로 리스트보다 상위인 ul 요소에 이벤트를 위임.
 
